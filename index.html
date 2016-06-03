@@ -1,0 +1,36 @@
+<html ng-app="randomQuote">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda-themeless.min.css">
+	<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+<body id="myPage" data-spy="scroll" data-offset="60">
+
+	<div class="jumbotron text-center" ng-controller="RandomQuoteController as randomQuote">
+		<h3>Words of Wisdom</h3>
+		<blockquote>
+			<p>{{ quote.quoteText }}</p>
+			<footer>{{ quote.quoteAuthor }}</footer>
+		</blockquote>
+		<div class="form">
+			<button ladda="loading" data-style="expand-left" class="btn btn-primary" 
+			ng-click="randomQuote.getQuote()">
+			<i class="fa fa-beer fa-2x"></i>  Feed me</button>
+			<a ladda="loading" data-style="expand-left" type="button" ng-click="randomQuote.twitterShare()" class="btn btn-primary">
+			<i class="fa fa-twitter fa-2x"></i>  Tweet</a>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.5.6/angular-resource.min.js"></script>
+	<script src="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/spin.min.js"></script>
+	<script src="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda.min.js"></script>
+	<script src="http://remotty.github.io/angular-ladda/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
