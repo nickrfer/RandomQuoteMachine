@@ -1,17 +1,5 @@
-var app = angular.module('randomQuote', ['ngResource', 'angular-ladda']);
+var app = angular.module('randomQuote', ['angular-ladda']);
 
-
-
-app.config(['$resourceProvider', '$httpProvider', function($resourceProvider, $httpProvider) {
-  // Don't strip trailing slashes from calculated URLs
-  $resourceProvider.defaults.stripTrailingSlashes = false;
-
-  $httpProvider.defaults.useXDomain = true;
-  $httpProvider.defaults.withCredentials = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
-  $httpProvider.defaults.headers.common['Accept'] = 'application/json';
-  $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
-}]);
 
 app.controller('RandomQuoteController', [ '$scope', '$http', '$timeout',
   function($scope, $http, $timeout) {
