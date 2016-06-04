@@ -1,0 +1,44 @@
+<div class="container text-center jumbotron">
+  <div class="col-xs-10 col-xs-offset-1 center">
+    <h1 class="lead"><strong>Sir William Wallace</strong>
+    </h1>
+
+    <div class="row lead">
+        <i>A Guardian of Scotland</i>
+    </div>
+
+    <div class="row">
+      <img class="img-responsive img-rounded" src="http://1000things-london.com/wp-content/uploads/2013/02/William-Wallace.jpg" />
+    </div>
+
+    <div class="row">
+      <h4>Some of his feats:</h4>
+    </div>
+
+    <div class="row text-left">
+      <div class="row col-xs-10 col-xs-offset-0">
+        <ul>
+          <li>
+            Carrying out many rebellions, such as the raid of Scone, alongside William the Hardy, Lord of Douglas and Andrew Moray.
+          </li>
+          <li>
+            Winning the battle at the bridge of Stirling, by letting the English force cross the bridge only to be crushed at the other end.
+          </li>
+          <li>
+            Being knighted in a ceremony, at the 'Kirk o' the Forest'.
+          </li>
+          <li>
+            Sacrificed himself in his fight for the independence of Scotland, therefore being recognized as a  national hero.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <blockquote>
+      <p>"For the hands that rocks the cradle - Is the hand that rules the world"</p>
+      <footer>
+        William Wallace
+      </footer>
+    </blockquote>
+    <h3>If you want to know more about this greatly admired person, <a href="https://en.wikipedia.org/wiki/William_Wallace" target="_blank">look here</a>.
+  </div>
+</div>
