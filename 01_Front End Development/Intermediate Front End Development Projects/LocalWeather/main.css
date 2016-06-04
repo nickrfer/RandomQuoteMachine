@@ -1,0 +1,19 @@
+span.wi {
+	font-size: 50px;
+	color: #2196f3;
+}
+#unitChanger {
+	cursor: pointer; 
+	cursor: hand; 
+	text-decoration:none;
+}
+footer {
+	padding-top: 50px;
+	text-align: center;
+}
+footer p i {
+	font-size: 12px;
+}
+a:hover {
+	text-decoration: none;
+}
