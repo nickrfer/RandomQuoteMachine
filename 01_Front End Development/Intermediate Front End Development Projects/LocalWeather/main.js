@@ -35,7 +35,7 @@ app.controller('LocalWeatherController', [ '$scope', '$http', '$timeout',
       }
       // Finally tack on the prefix.
       $scope.iconClass = prefix + icon;
-      $scope.temperature = data.main.temp;
+      $scope.temperature = Math.round(data.main.temp);
       $scope.unit = 'C';
       $scope.location = data.name + ', ' + data.sys.country;
       console.log($scope.iconClass);
@@ -55,11 +55,11 @@ app.controller('LocalWeatherController', [ '$scope', '$http', '$timeout',
 
 function convertUnit(unit, temperature) {
   if (unit == 'C') {
-    F = temperature * 9 / 5 + 32;
-    temperature = Math.round(F);
+    var celsius = (temperature -32) * 5 / 9;
+    temperature = Math.round(celsius);
   } else {
-    C = (temperature -32) * 5 / 9;
-    temperature = Math.round(C);
+    fahrenheit = temperature * 9 / 5 + 32;
+    temperature = Math.round(fahrenheit);
   }
   return temperature;
 }
