@@ -1,0 +1,30 @@
+html {
+	font-family: 'Inconsolata', Monaco, Consolas, 'Andale Mono', monospace;
+}
+.nav-wrapper {
+	padding-left: 27%;
+	background-color: #540D6E;
+}
+.stream {
+	font-size: 10px;
+	font-style: italic;
+}
+footer {
+	text-align: center;
+}
+footer p i {
+	font-size: 12px;
+}
+a:hover {
+	text-decoration: none !important;
+}
+.page-footer {
+	background-color: #540D6E !important;
+}
+.typcn {
+	font-size: 40px;
+	margin-right: 5px;
+}
+.footer-copyright .typcn {
+	font-size: 20px;
+}
