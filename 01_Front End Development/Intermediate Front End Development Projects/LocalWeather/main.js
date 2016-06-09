@@ -14,20 +14,22 @@ app.controller('LocalWeatherController', [ '$scope', '$http', '$timeout',
 
     var getLocalWeather = function(location) {
       return $http.get('http://api.openweathermap.org/data/2.5/weather', {
-          params: {
-            dataType: 'jsonp',
-            jsonCallback: 'jsonp',
-            appid: '8b7dbdc13967c69776c954193033f2bb',
-            units: 'metric',
-            q: location.data.city
-          }
-        });
+        params: {
+          dataType: 'jsonp',
+          jsonCallback: 'jsonp',
+          appid: '8b7dbdc13967c69776c954193033f2bb',
+          units: 'metric',
+          q: location.data.city
+        }
+      });
     }
 
     var showWeather = function(data) {
       var prefix = 'wi wi-';
       var code = data.weather[0].id;
       var icon = weatherIcons[code].icon;
+
+      // code bellow is from https://gist.github.com/tbranyen/62d974681dea8ee0caa1
 
       // If we are not in the ranges mentioned above, add a day/night prefix.
       if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
@@ -38,7 +40,10 @@ app.controller('LocalWeatherController', [ '$scope', '$http', '$timeout',
       $scope.temperature = Math.round(data.main.temp);
       $scope.unit = 'C';
       $scope.location = data.name + ', ' + data.sys.country;
-      console.log($scope.iconClass);
+      
+
+      $timeout(function() {$scope.isLoaded = true;
+      }, 1000);
     };
 
     this.changeUnit = function() {
