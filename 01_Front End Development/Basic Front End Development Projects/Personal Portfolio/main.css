@@ -4,15 +4,12 @@ html,
 body {
   height: 100%;
   width: 100%;
-  /*background-image: url('https://pixabay.com/static/uploads/photo/2015/12/08/00/49/cabin-1082063_960_720.jpg');*/
-  background-image: url('https://pixabay.com/static/uploads/photo/2016/03/19/23/36/hut-1267670_960_720.jpg');
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: white;
+  background-color: #303030 !important;
 }
-
 
 /* padded section */
 
@@ -27,7 +24,7 @@ body {
 
 /* vertical-centered text */
 
-.text-vcenter {
+.vcenter {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -40,11 +37,17 @@ body {
   padding: 0;
 }
 
+#triangle-topleft {
+	width: 0;
+	height: 0;
+	border-top: 100px solid red;
+	border-right: 100px solid transparent;
+}
+
 
 /* additional sections */
 
-#home {
-  background: url(../images/home.jpg) no-repeat center center fixed;
+#about {
   display: table;
   height: 100%;
   position: relative;
@@ -55,31 +58,24 @@ body {
   background-size: cover;
 }
 
-#home h1 {
-  color: white;
-}
-#home h3 {
-  color:white;
+#about {
+  color: #277791;
 }
 
-#about {}
-
-#projects {
-  background-color: #B57F50;
+#portfolio {
+  background-color: #74AB85;
   color: #ffffff;
 }
 
-#projects .glyphicon {
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  width: 140px;
+.project {
+  padding-top: 5%;
 }
 
-#information {
-  background: url(../images/estate.jpg) no-repeat center center fixed;
+footer {
+	padding-top: 20px;
+	text-align: center;
   display: table;
-  height: 800px;
+  height: 100%;
   position: relative;
   width: 100%;
   -webkit-background-size: cover;
@@ -87,20 +83,10 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-
-#information .panel {
-  opacity: 0.85;
+footer p i {
+	font-size: 12px;
 }
 
-footer {
-  padding: 20px 0;
-}
-
-footer .glyphicon {
-  color: #333333;
-  font-size: 60px;
-}
-
-footer .glyphicon:hover {
-  color: #306d9f;
+a:hover {
+	text-decoration: none !important;
 }
