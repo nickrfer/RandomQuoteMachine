@@ -21,7 +21,7 @@ app.controller('RandomQuoteController', [ '$scope', '$http', '$timeout',
       if (twtTitle.length > maxLength) {
         twtTitle = twtTitle.substr(0, (maxLength - 3)) + '...';
       }
-      var twtLink = 'https://twitter.com/intent/tweet?text=' 
+      var twtLink = 'https://twitter.com/intent/tweet?text='
       + $scope.quote.quote + ' - ' + $scope.quote.author;
       window.open(twtLink);
     };
@@ -382,4 +382,3 @@ var quotes =
   "public": "yes"
 }
 ]
-

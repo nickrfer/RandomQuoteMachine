@@ -2,10 +2,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
-	<link rel="stylesheet" href="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda-themeless.min.css">
-	<link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda-themeless.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
 <body id="myPage" data-spy="scroll" data-offset="60">
 
@@ -16,7 +15,7 @@
 			<footer>{{ quote.author }}</footer>
 		</blockquote>
 		<div class="form">
-			<button ladda="loading" data-style="expand-left" class="btn btn-primary" 
+			<button ladda="loading" data-style="expand-left" class="btn btn-primary"
 			ng-click="randomQuote.getQuote()">
 			<i class="fa fa-beer fa-2x"></i>  Feed me</button>
 			<a ladda="loading" data-style="expand-left" type="button" ng-click="randomQuote.twitterShare()" class="btn btn-primary">
@@ -34,22 +33,21 @@
 			<a href="https://www.linkedin.com/in/nickrfer" target='_blank'>
 				<i class="fa fa-linkedin"></i>
 			</a>
-			<a href="http://www.freecodecamp.com/nickrfer" target='_blank'>
+			<a href="https://www.freecodecamp.com/nickrfer" target='_blank'>
 				(<i class="fa fa-fire fa-fw"></i>)
 			</a>
-			<a href="http://codepen.io/nickrfer" target='_blank'>
+			<a href="https://codepen.io/nickrfer" target='_blank'>
 				<i class="fa fa-codepen"></i>
 			</a>
 		</p>
 		<br />
-		<p><i>Special thanks to reddit user @Big_Stingman for providing the quotes in json format!</i></p>	
+		<p><i>Special thanks to reddit user @Big_Stingman for providing the quotes in json format!</i></p>
 	</footer>
 
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script src="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/spin.min.js"></script>
-	<script src="http://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda.min.js"></script>
-	<script src="http://remotty.github.io/angular-ladda/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
-	<script src="main.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/spin.min.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda.min.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
 </body>
 </html>

@@ -1,111 +1,53 @@
-<html ng-app="twitchClient">
+<html ng-app="randomQuote">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css"  media="screen,projection"/>
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.7/typicons.min.css" rel="stylesheet" />
-	<link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="main.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda-themeless.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
-<body>
-	<div ng-controller="TwitchClientController as twitchClient">
-		<div class="row">
-			<div class="spinner" ng-show="!isLoaded">
-			  <div class="rect1"></div>
-			  <div class="rect2"></div>
-			  <div class="rect3"></div>
-			  <div class="rect4"></div>
-			  <div class="rect5"></div>
-			</div>
+<body id="myPage" data-spy="scroll" data-offset="60">
+
+	<div class="jumbotron text-center" ng-controller="RandomQuoteController as randomQuote" ng-cloack>
+		<h3>Lord of the Rings Quotes</h3>
+		<blockquote>
+			<p>{{ quote.quote }}</p>
+			<footer>{{ quote.author }}</footer>
+		</blockquote>
+		<div class="form">
+			<button ladda="loading" data-style="expand-left" class="btn btn-primary"
+			ng-click="randomQuote.getQuote()">
+			<i class="fa fa-beer fa-2x"></i>  Feed me</button>
+			<a ladda="loading" data-style="expand-left" type="button" ng-click="randomQuote.twitterShare()" class="btn btn-primary">
+				<i class="fa fa-twitter fa-2x"></i>  Tweet
+			</a>
 		</div>
-		<div class="row" ng-show="isLoaded" ng-cloak>
-			<div class="content col s12 m8 l6 offset-l3 offset-m2">
-				<header>
-					<nav>
-						<div class="nav-wrapper">
-							<a href="#" class="brand-logo"><h4>Twitch.tv Streamers</h4></a>
-						</div>
-					</nav>
-				</header>
-				<main class="site-content">	
-					<ul class="collection with-header" ng-hide="users == null">
-						<li class="collection-header left-align">
-							<p>
-								<input name="statusgroup" type="radio" id="statusall" ng-model="statusFilter" value="all" />
-								<label for="statusall">All</label>
+	</div>
 
-								<input name="statusgroup" type="radio" id="statuson" ng-model="statusFilter" value="online" />
-								<label for="statuson">Online</label>
+	<footer>
+		<p>By nickrfer.</p>
+		<p>
+			<a href="https://github.com/nickrfer" target='_blank'>
+				<i class="fa fa-github fa-fw"></i>
+			</a>
+			<a href="https://www.linkedin.com/in/nickrfer" target='_blank'>
+				<i class="fa fa-linkedin"></i>
+			</a>
+			<a href="https://www.freecodecamp.com/nickrfer" target='_blank'>
+				(<i class="fa fa-fire fa-fw"></i>)
+			</a>
+			<a href="https://codepen.io/nickrfer" target='_blank'>
+				<i class="fa fa-codepen"></i>
+			</a>
+		</p>
+		<br />
+		<p><i>Special thanks to reddit user @Big_Stingman for providing the quotes in json format!</i></p>
+	</footer>
 
-								<input class="with-gap" name="statusgroup" type="radio" id="statusoff" ng-model="statusFilter" value="offline" />
-								<label for="statusoff">Offline</label>
-
-								<input name="statusgroup" type="radio" id="statusradio" disabled="disabled" ng-model="statusFilter" />
-							</p>
-						</li>
-						<li class="collection-item avatar" ng-repeat="user in users | orderBy:['!isOnline', '!isAccountExists', 'displayName']" ng-hide="hideByStatus(user)">
-							<a ng-href="{{user.url}}" class="center-align" target="_blank">
-								<img ng-src="{{user.logo}}" alt="" class="circle">
-							</a>
-							<span class="title">{{user.displayName}}</span>
-							<span class="secondary-content">
-								<div ng-hide="!user.isAccountExists">
-									<i ng-hide="user.isOnline" class="typcn typcn-lock-closed"></i>
-									<i ng-hide="!user.isOnline" class="typcn typcn-lock-open-outline"></i>
-								</div>
-								<div ng-hide="user.isAccountExists">
-									<i class="typcn typcn-cancel"></i>
-								</div>
-							</span>
-							<br />
-							<span class="stream" ng-hide="!user.isOnline">
-								{{user.streamGame}}<span ng-hide="user.status == null">: </span>{{user.status}} 
-							</span>
-							<span class="stream" ng-hide="user.isOnline">
-								<span ng-hide="user.isAccountExists" class="red-text lighten-1">Invalid user</span>
-								<span ng-hide="!user.isAccountExists">Offline</span>
-							</span>
-							<!--<span class="secondary-content"><i class="material-icons">grade</i></a>-->
-						</li>
-					</ul>
-				</main>
-				<footer class="page-footer">
-					<div class="container">
-						<div class="row ">
-							<div class="col l12 s12">
-								<p class="grey-text text-lighten-4">Twitch.tv JSON API client done for freecodecamp.org.</p>
-								<p class="grey-text text-lighten-4"> Built with AngularJS, Materialize CSS, SpinKit and Typicons.</p>
-							</div>
-						</div>
-						<div class="footer-copyright">
-							<div class="container">
-
-								<a class="grey-text text-lighten-4 right" href="http://twitter.com/nickrfer" target='_blank'>
-									<i class="typcn typcn-social-twitter"></i>
-								</a>	
-								<a class="grey-text text-lighten-4 right" href="http://codepen.io/nickrfer" target='_blank'>
-									<i class="typcn typcn-code"></i>
-								</a>
-								<a class="grey-text text-lighten-4 right" href="http://www.freecodecamp.com/nickrfer" target='_blank'>
-									<i class="typcn typcn-chart-area"></i>
-								</a>
-								<a class="grey-text text-lighten-4 right" href="https://www.linkedin.com/in/nickrfer" target='_blank'>
-									<i class="typcn typcn-social-linkedin"></i>
-								</a>
-								<a class="grey-text text-lighten-4 right"  href="https://github.com/nickrfer" target='_blank'>
-									<i class="typcn typcn-social-github"></i>
-								</a>
-								<span class="grey-text text-lighten-4 right">by nickrfer</span>
-
-							</div>
-						</div></div>
-					</footer>
-				</div>
-			</div>
-			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-			<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-			<script src="main.js"></script>
-		</body>
-		</html>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/spin.min.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda.min.js"></script>
+	<script src="https://remotty.github.io/angular-ladda/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+</body>
+</html>
