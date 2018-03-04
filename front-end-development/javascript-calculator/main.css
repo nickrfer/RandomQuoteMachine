@@ -1,18 +1,5 @@
-blockquote {
-	margin: 1.5em 10px;
-	padding: 0.5em 10px;
-	quotes: "\201C""\201D""\2018""\2019";
-}
-blockquote:before {
-	color: #ccc;
-	content: open-quote;
-	font-size: 4em;
-	line-height: 0.1em;
-	margin-right: 0.25em;
-	vertical-align: -0.4em;
-}
-blockquote p {
-	display: inline;
+html, body {
+height: 100%;
 }
 footer {
 	text-align: center;
@@ -20,6 +7,9 @@ footer {
 footer p i {
 	font-size: 12px;
 }
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-  display: none !important;
+.top-buffer { margin-top:3px; }
+.top-buffer button {
+  width: 35px;
+  padding: 0;
 }
+.top-buffer div { margin-right: 3px; }

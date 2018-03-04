@@ -1,28 +1,14 @@
-<html ng-app="randomQuote">
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.0.0/minty/bootstrap.min.css">
 	<link rel="stylesheet" href="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda-themeless.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 </head>
-<body id="myPage" data-spy="scroll" data-offset="60">
+<body id="myPage">
 
-	<div class="jumbotron text-center" ng-controller="RandomQuoteController as randomQuote" ng-cloack>
-		<h3>Lord of the Rings Quotes</h3>
-		<blockquote>
-			<p>{{ quote.quote }}</p>
-			<footer>{{ quote.author }}</footer>
-		</blockquote>
-		<div class="form">
-			<button ladda="loading" data-style="expand-left" class="btn btn-primary"
-			ng-click="randomQuote.getQuote()">
-			<i class="fa fa-beer fa-2x"></i>  Feed me</button>
-			<a ladda="loading" data-style="expand-left" type="button" ng-click="randomQuote.twitterShare()" class="btn btn-primary">
-				<i class="fa fa-twitter fa-2x"></i>  Tweet
-			</a>
-		</div>
-	</div>
+	<div id="container" class="jumbotron text-center" />
 
 	<footer>
 		<p>By nickrfer.</p>
@@ -40,14 +26,15 @@
 				<i class="fa fa-codepen"></i>
 			</a>
 		</p>
-		<br />
-		<p><i>Special thanks to reddit user @Big_Stingman for providing the quotes in json format!</i></p>
 	</footer>
 
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/spin.min.js"></script>
-	<script src="https://remotty.github.io/angular-ladda/bower_components/ladda/dist/ladda.min.js"></script>
-	<script src="https://remotty.github.io/angular-ladda/bower_components/angular-ladda/dist/angular-ladda.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.development.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.development.js"></script>
+
 </body>
 </html>
